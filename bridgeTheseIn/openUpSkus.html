@@ -15,61 +15,60 @@
 <body>
 
 <script type="text/javascript">
-	var grabMe = document.getElementsByTagName('productSKUS');
-	var skusSnagged = [];
-	theTextbox = {};
-	theTextbox.theSkus = function smartSplitting(){
-		if (document.getElementsByTagName('newLine').isChecked){
-			return skusSnagged.push(grabMe.value.split("\n");) 
-		}
-		else if (document.getElementsByTagName('csvWithSpaces').isChecked){
-			return skusSnagged.push(grabMe.value.split(", ");)
-		}
-		else if (document.getElementsByTagName('csvWithoutSpaces').isChecked){
-			return skusSnagged.push(grabMe.value.split(",");)
-		}
-	}
-	theTextbox.doYourThangGurl = function popLockAndDropIt(){
-		var tempArray = skusSnagged.map(function(x,i,skusSnagged){skusSnagged[i]="https://direct.daz3d.com/index_redir.php/D4Z_adm1n/catalog_product/edit/id/"+x+"/";});
-		for (var i = 0; i <= skusSnagged.length; i++) {
-			function openNewTabs(skusSnagged[i]){
-				var win = window.open(skusSnagged[i],'_blank');
-				win.focus();
-			}
-		};
+function openSkus() {
+	var grabMe = document.getElementById('productSKUS').value;
+	var splitOn;
+
+	if (document.getElementById('newLine').checked){
+		splitOn = "\n";
+	} else if (document.getElementById('csvWithSpaces').checked){
+		splitOn = ", ";
+	} else if (document.getElementById('csvWithoutSpaces').checked){
+		splitOn = ",";
 	}
 
+	var skusSnagged = grabMe.split(splitOn);
 
+	for (var i = 0; i < skusSnagged.length; i++) {
+		var sku = skusSnagged[i];
+		if (sku == ""){
+			continue;
+		}
+		var url = "https://direct.daz3d.com/index_redir.php/D4Z_adm1n/catalog_product/edit/id/" + sku + "/";
+		var win = window.open(url, '_blank');
+		if (win !== undefined) {
+			win.focus();
+		}
+	};
+}
 </script>
 
 <style type="text/css">
 
 </style>
-
-
 	<article id="wrapIt">
-		<section id="a">
+		<section id="sku-options">
+			
 			<h1>
 				Open up a new line list of seperated skus in new-tabs in Magento
 			</h1>
-			<form id="" action="">
-				<input id="newLine" type="radio" name="theSKUS" value="1">Take Your SKUS On New Line - open in Magento
-			</form>
+
+			<input id="newLine" type="radio" name="sku-type" checked>New Line List
+			<input id="csvWithSpaces" type="radio" name="sku-type">CSV With Spaces
+			<input id="csvWithoutSpaces" type="radio" name="sku-type">CSV Without Spaces
+		
 		</section>
 
-		<section id="b">
+		<section id="sku-textarea">
 			<span>SKUS That Will Be Opened:</span>
 			<br>
 			<textarea id="productSKUS" type="number"></textarea>
 		</section>
 		
 
-		<section id="c">
-			<form>
-				<input id="clickMe" type="submit" name="theSKUS" value="Open Up In New Tabs">
-			</form>
+		<section id="sku-button">
+			<button id="clickMe" type="submit" name="theSKUS" onclick="openSkus()">Open Up In New Tabs</button>
 		</section>
-
 
 	</article>
 
