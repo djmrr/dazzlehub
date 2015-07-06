@@ -1,0 +1,78 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Make Custom CSVs and Revert To Normal Lists">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Open Up SKUS From New Line</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	
+
+
+</head>
+<body>
+
+<script type="text/javascript">
+	var grabMe = document.getElementsByTagName('productSKUS');
+	var skusSnagged = [];
+	theTextbox = {};
+	theTextbox.theSkus = function smartSplitting(){
+		if (document.getElementsByTagName('newLine').isChecked){
+			return skusSnagged.push(grabMe.value.split("\n");) 
+		}
+		else if (document.getElementsByTagName('csvWithSpaces').isChecked){
+			return skusSnagged.push(grabMe.value.split(", ");)
+		}
+		else if (document.getElementsByTagName('csvWithoutSpaces').isChecked){
+			return skusSnagged.push(grabMe.value.split(",");)
+		}
+	}
+	theTextbox.doYourThangGurl = function popLockAndDropIt(){
+		var tempArray = skusSnagged.map(function(x,i,skusSnagged){skusSnagged[i]="https://direct.daz3d.com/index_redir.php/D4Z_adm1n/catalog_product/edit/id/"+x+"/";});
+		for (var i = 0; i <= skusSnagged.length; i++) {
+			function openNewTabs(skusSnagged[i]){
+				var win = window.open(skusSnagged[i],'_blank');
+				win.focus();
+			}
+		};
+	}
+
+
+</script>
+
+<style type="text/css">
+
+</style>
+
+
+	<article id="wrapIt">
+		<section id="a">
+			<h1>
+				Open up a new line list of seperated skus in new-tabs in Magento
+			</h1>
+			<form id="" action="">
+				<input id="newLine" type="radio" name="theSKUS" value="1">Take Your SKUS On New Line - open in Magento
+			</form>
+		</section>
+
+		<section id="b">
+			<span>SKUS That Will Be Opened:</span>
+			<br>
+			<textarea id="productSKUS" type="number"></textarea>
+		</section>
+		
+
+		<section id="c">
+			<form>
+				<input id="clickMe" type="submit" name="theSKUS" value="Open Up In New Tabs">
+			</form>
+		</section>
+
+
+	</article>
+
+
+</body>
+</html>

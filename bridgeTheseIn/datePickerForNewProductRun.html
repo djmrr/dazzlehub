@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Pick The Dates For The New Product Run</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    </head>
+    <body>
+
+        <script type="text/javascript">
+            $( document ).ready(function() {
+                document.getElementById('clickButton').addEventListener('click', getDate);
+            });
+
+            function getDate() {
+                var dateCountPicked = document.querySelector('input[name = "choices"]:checked').value; 
+                console.log(dateCountPicked);
+                var tt = document.getElementById('txtDate').value;
+
+                var date = new Date(tt);
+                var newdate = new Date(date);
+
+                newdate.setDate(newdate.getDate() + Number(dateCountPicked) );
+
+                var dd = newdate.getDate();
+                var mm = newdate.getMonth() + 1;
+                var y = newdate.getFullYear();
+
+                var someFormattedDate = mm + '/' + dd + '/' + y;
+                document.getElementById('end_Date').value = someFormattedDate;
+                var whatDate = document.getElementById('whatDate')
+
+                if (dateCountPicked == 60) {
+                    whatDate.textContent = "This is the End Date for the New Product Run"
+                    console.log(whatDate)
+                }
+                else if (dateCountPicked == 14) {
+                    whatDate.textContent = "This is the End Date for the Intro Pricing Period"
+                    console.log(whatDate)
+                }
+                else {
+                    whatDate.textContent = "I don't know what that is but you probably put in dates wrong!"
+                    console.log(whatDate)
+                }
+            }
+        </script>
+
+        <style type="text/css">
+        	body	{
+        		background-color: #666666;
+        	}
+        	#wrappedMe {
+        		margin: 0 auto;
+        		background-color: #efefef;
+        		margin-top: 10%; 
+        		text-align: left;
+        		padding: 2em;
+        		max-width: 500px;
+        		border-radius: 1em;
+        	}
+        	h1{
+        		color: #666666;
+        	}
+        	input:focus {
+        		background-color: #000000;
+        		color: #ffffff;
+        	}
+        	input {
+        		height: 1.5em;
+
+        	}
+            #whatDate {
+                color: purple;
+                font-weight: bolder;
+                margin-top: .5em;
+            }
+
+        </style>
+
+    <div id="wrappedMe" style="font-family: Arial;">
+
+	    <h1>Type out the date. <br>Then Click The Button To Calculate the Proper End Date.</h2>
+	    <h3> example: "1/1/15"</h3>
+	    <br>
+	    <p>Launch Date:
+	    </p>
+        <div>
+	       <span><input id="txtDate" type="text" /></span>
+	       <span><input type="radio" id="datesChoice" name="choices" value="60">60 Days </span>
+           <span><input type="radio" id="datesChoice" name="choices" value="14">14 Days (intro pricing period)</span>
+           <br>
+	       <span><input type="button" id="clickButton" value="Find End Date" /></span> 
+	   	</div>    
+	    <p>End New "Product Run" Date OR Intro Pricing End Date:
+	    </p>
+
+	    	<span><input id="end_Date" type="text" /></span>
+        <br>
+        <span id="whatDate"> </span>
+	    <br>
+	    <br>
+	    <p>
+	    	<strong>NOTE:</strong> If you're getting "NaN/NaN/NaN" as a result you typed in some stuff wrong. 
+	    </p>
+
+    </div>	
+
+    </body>
+</html>

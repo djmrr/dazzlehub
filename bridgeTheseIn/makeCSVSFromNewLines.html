@@ -1,0 +1,276 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Make Custom CSVs and Revert To Normal Lists">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Make CSVs from New Lines</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	
+
+
+</head>
+<body>
+
+	<script type="text/javascript">
+			$(document).ready(function(){
+		
+		// open up the scoped objects
+		var radioAccess = {
+			buttonSelected:0, 
+			activeButton: false
+		};
+
+		var theText = {
+			isFilled: false, 
+			textContents: ""
+		};
+
+		var textConverted = document.getElementById('#yourList');
+		var newText = "";
+
+		$("#b").resizable();
+		$("#d").resizable();
+
+		// logic function for analyzing how to break apart the product skus 
+
+		function analyzeProductSKUS(){
+			var theProductSKUS = radioAccess.buttonSelected;
+			var workingText = theText.textContents.split("\n"); 
+
+			switch (Number(theProductSKUS)){
+
+			case 1:
+			workingText;
+			newText = workingText.join(", ");
+			console.log(newText);
+			break; 
+
+			case 2:
+			newText = workingText.join(",");
+			console.log(newText); 
+			break; 
+
+			case 3: 
+			var adjustText = theText.textContents.split(', ');
+			newText = adjustText.join("\n");
+			console.log(newText);
+			break; 
+
+			case 4: 
+			var adjustText = theText.textContents.split(',');
+			newText = adjustText.join("\n");
+			console.log(newText);
+			break;
+
+			default: 
+			console.log("button selected for analyzeProductSKUS is outside the norm / something broke");
+			console.log(radioAccess.buttonSelected);
+
+
+			}
+		}  
+
+		$("#clickMe").click(function(){
+			$("#d").effect( "bounce", { times: 3 }, "slow" );
+			$("#d").effect("highlight", 3000);
+		});
+
+
+		var kvArray = [["button1", $("#radioOne").val()],["button2", $("#radioTwo").val()],["button3", $("#radioThree").val()],["button4", $("#radioFour").val()] ];
+		var buttonMap = new Map(kvArray);
+		// make the first function to determine what radio button has been selected 
+		// do something with the $("#csvSelection").val() to get the radio button value 
+		$("#spaceDetect").click(function relayInfoAboutWhatButtonIsActive(){
+
+			var radioTag = $("input[name=cCell]:checked").val(); 
+
+
+			switch(Number(radioTag)){
+
+				case 1:
+				console.log("radio button 1 is active");
+				radioAccess.buttonSelected = buttonMap.get("button1");
+				radioAccess.activeButton = true;
+				console.log([radioAccess.buttonSelected, radioAccess.activeButton]); 
+				break;
+
+				case 2:
+				console.log("radio button 2 is active");
+				radioAccess.buttonSelected = buttonMap.get("button2");
+				radioAccess.activeButton = true;
+				console.log([radioAccess.buttonSelected, radioAccess.activeButton]); 
+				break;
+
+				case 3:
+				console.log("radio button 3 is active");
+				radioAccess.buttonSelected = buttonMap.get("button3");
+				radioAccess.activeButton = true;
+				console.log([radioAccess.buttonSelected, radioAccess.activeButton]); 
+				break;
+
+				case 4:
+				console.log("radio button 4 is active");
+				radioAccess.buttonSelected = buttonMap.get("button4");
+				radioAccess.activeButton = true;
+				console.log([radioAccess.buttonSelected, radioAccess.activeButton]); 
+				break;
+
+				default:
+				console.log("don't know what radio button is active");
+			
+
+			}
+		});	
+
+
+
+		// make the second function to analyze the text if it's filled/radio button is checked/combo  and perform an action based on what radioAccess button is active 
+
+
+		$("#clickMe").click(function alertIfSomethingIsntFilledOut(){
+			event.preventDefault();
+			console.log("submit button has been clicked");
+			theText.textContents = document.getElementById("productSKUS").value.trim();
+
+			if(document.getElementById("productSKUS").value == ''){
+				alert("you haven't entered any text in to be transformed");
+			}
+
+			else if($.trim(theText.textContents) == '' && (radioAccess.buttonSelected == 0) && (radioAccess.activeButton == false)){
+				alert("you haven't entered any text or selected a radio button");
+			} 
+
+			else if((radioAccess.buttonSelected == 0) && (radioAccess.activeButton == false)){
+				alert("you haven't selected a radio button");
+			}
+
+			else if ($.trim(theText.textContents) == ''){
+				alert("you haven't inputed any text"); 
+			}
+
+			else {
+				// then the text object is then filled so assign filled if it passes all those checks 
+				theText.isFilled = true;
+				console.log(theText.textContents);
+				console.log("about to run the analyzeProductSKUS function"); 
+				analyzeProductSKUS(); 
+				$('#yourList').val(newText);
+
+			}
+
+			
+		});
+
+
+	});
+	</script>
+
+
+	<style type="text/css">
+
+	body	{
+		background-color: #225378;
+		text-align: center;
+		max-height: 100%;
+		font-family: sans-serif;
+
+	}
+	#wrapIt {
+		background-color: #1695A3;
+		margin: 0 auto;
+		text-align: center;
+		padding: 1em;
+		border-radius: 3em;
+		max-width: 700px;
+	}
+	#a, #b, #c, #d{
+		margin: 1em;
+		padding: 1em;
+	}
+	textarea{
+		min-width: 300px;
+		min-height: 200px;
+		border-radius: 5px;
+		opacity: .9;
+		text-align: left !important;
+		font-size: 18px;
+		line-height: 1.25em;
+	}
+	input[type=submit]{
+		width: 10em;
+		height: 5em;
+		font-size: 20px;
+		border-radius: 5px;
+
+	}
+	input[type=text], textarea {
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline: none;
+	padding: 3px 0px 3px 3px;
+	margin: 5px 1px 3px 0px;
+	border: 3px solid #EB7F00;
+	}
+
+	input[type=text]:focus, textarea:focus {
+	box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+	padding: 3px 0px 3px 3px;
+	margin: 5px 1px 3px 0px;
+	border: 3px solid rgba(81, 203, 238, 1);
+	}
+	h1{
+		color: #f3ffe2;
+		letter-spacing: .1em;
+	}
+	#spaceDetect {
+		line-height: 1.5em;
+		font-weight: bolder;
+	}
+
+	</style>
+
+
+
+	<article id="wrapIt">
+		<section id="a">
+			<h1>
+				Make Your Selection Of What You Want To Do With SKUS
+			</h1>
+			<form id="spaceDetect" action="">
+				<input id="radioOne" type="radio" name="cCell" value="1">CSV With Spaces from New Line List<br>
+				<input id="radioTwo" type="radio" name="cCell" value="2">CSV Without Spaces from New Line List<br>
+				<input id="radioThree" type="radio" name="cCell" value="3">New Line Separated List From CSVs With Spaces <br>
+				<input id="radioFour" type="radio" name="cCell" value="4">New Line Separated List From CSVs Without Spaces
+			</form>
+		</section>
+
+		<section id="b">
+			<span>SKUS That Will Be Converted:</span>
+			<br>
+			<textarea id="productSKUS" type="number"></textarea>
+		</section>
+		
+
+		<section id="c">
+			<form>
+				<input id="clickMe" type="submit" name="cCell" value="Convert Format">
+			</form>
+		</section>
+
+		
+		<section id="d">
+			<span>Your List Of Converted SKUS</span>
+			<br>
+			<textarea id="yourList" type="number"></textarea>
+		</section>
+
+	</article>
+
+
+</body>
+</html>
