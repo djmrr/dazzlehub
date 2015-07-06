@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name dazzlehubApp.controller:DatePicker
+ * @name dazzlehubApp.controller:DatePickerCtrl
  * @description
- * # DatePicker
+ * # DatePickerCtrl
  * Controller of the dazzlehubApp
  */
 angular.module('dazzlehubApp')
