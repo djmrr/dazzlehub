@@ -1,0 +1,29 @@
+<article id="wrapIt">
+	<section id="sku-options">
+		
+		<h1>
+			Open up a new line list of seperated skus in new-tabs in Magento
+		</h1>
+
+		<label for="splitNewline">New Line List</label>
+		<input id="splitNewline" type="radio" name="sku-type" ng-model="splitType" value="newline"/>
+
+		<label for="splitSpaces">CSV With Spaces</label>
+		<input id="splitSpaces" type="radio" name="sku-type" ng-model="splitType" value="spaces"/>
+
+		<label for="splitCsv">CSV Without Spaces</label>
+		<input id="splitCsv" type="radio" name="sku-type" ng-model="splitType" value="csv"/>
+	
+	</section>
+
+	<section id="sku-textarea">
+		<span>SKUS That Will Be Opened:</span>
+		<br/>
+		<textarea ng-model="skuList"></textarea>
+	</section>
+
+	<section id="sku-button">
+		<button type="submit" name="theSKUS" ng-click="openSkus()">Open Up In New Tabs</button>
+	</section>
+
+</article>
