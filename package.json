@@ -38,6 +38,9 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "compass": "^0.1.1"
+    "compass": "^0.1.1",
+    "express": "^4.13.1",
+    "gzippo": "^0.2.0",
+    "morgan": "^1.6.1"
   }
 }
