@@ -1,0 +1,5 @@
+<select ng-model="days" ng-change="convert()">
+    <option ng-repeat="day in dayChoices" ng-selected="{{days == day.value}}" value="{{day.value}}">{{ day.name }}</option>
+</select>
+<input ng-model="fromDate" placeholder="mm/dd/yy" ng-change="convert()"/>
+<input ng-model="toDate"/>

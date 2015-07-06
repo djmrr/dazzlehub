@@ -39,9 +39,9 @@
 
             <ul class="nav navbar-nav">
               <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/datepicker">Magento Product Date Picker</a></li>
-              <li><a ng-href="#/makecsvs">Magento Bullsh*t CSVs (adding a space)</a></li>
-              <li><a ng-href="#/productopener">Magento Product Opener - Once Logged In</a></li>
+              <li><a ng-href="#/date-picker">Magento Product Date Picker</a></li>
+              <li><a ng-href="#/make-csvs">Magento Bullsh*t CSVs (adding a space)</a></li>
+              <li><a ng-href="#/product-opener">Magento Product Opener - Once Logged In</a></li>
             </ul>
           </div>
         </div>
@@ -70,6 +70,7 @@
        ga('send', 'pageview');
     </script>
 
+
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -88,6 +89,13 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/datepicker.js"></script>
+        <script src="scripts/controllers/makecsvs.js"></script>
+        <script src="scripts/controllers/productopener.js"></script>
+        <script src="scripts/services/csvparser.js"></script>
         <!-- endbuild -->
+
+        
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"/>
 </body>
 </html>

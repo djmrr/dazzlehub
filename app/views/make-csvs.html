@@ -1,0 +1,36 @@
+<article id="wrapIt">
+	<h1>From:</h1>
+	<div>
+		<label for="fromNewline">New Line List</label>
+		<input id="fromNewline" type="radio" name="from-type" ng-model="fromType" value="newline"/>
+
+		<label for="fromSpaces">CSV With Spaces</label>
+		<input id="fromSpaces" type="radio" name="from-type" ng-model="fromType" value="spaces"/>
+
+		<label for="fromCsv">CSV Without Spaces</label>
+		<input id="fromCsv" type="radio" name="from-type" ng-model="fromType" value="csv"/>
+	</div>
+
+	<div>
+		<textarea ng-model="fromText"></textarea>
+	</div>
+
+	<h1>To:</h1>
+	<div>
+		<label for="toNewline">New Line List</label>
+		<input id="toNewline" type="radio" name="to-type" ng-model="toType" value="newline"/>
+
+		<label for="toSpaces">CSV With Spaces</label>
+		<input id="toSpaces" type="radio" name="to-type" ng-model="toType" value="spaces"/>
+
+		<label for="toCsv">CSV Without Spaces</label>
+		<input id="toCsv" type="radio" name="to-type" ng-model="toType" value="csv"/>
+	</div>
+
+	<div>
+		<textarea ng-model="toText"></textarea>
+	</div>
+
+	<button ng-click="convert()">Convert</button>
+
+</article>

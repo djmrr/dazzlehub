@@ -8,10 +8,26 @@
  * Controller of the dazzlehubApp
  */
 angular.module('dazzlehubApp')
-  .controller('MakeCsvsCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('MakeCsvsCtrl', ["$scope", "csvParser", function ($scope, csvParser) {
+    
+    $scope.fromType = "newline";
+    $scope.toType = "csv";
+
+    var parseMap = {
+  		newline: csvParser.parseCsvNewline,
+  		spaces: csvParser.parseCsvWithSpace,
+  		csv: csvParser.parseCsvWithoutSpace,
+  	};
+
+  	var buildMap = {
+  		newline: csvParser.buildCsvNewline,
+  		spaces: csvParser.buildCsvWithSpace,
+  		csv: csvParser.buildCsvWithoutSpace,
+  	};
+
+  	$scope.convert = function () {
+  		var input = parseMap[$scope.fromType]($scope.fromText);
+  		$scope.toText = buildMap[$scope.toType](input);
+  	}
+		
+  }]);
