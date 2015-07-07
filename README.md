@@ -1,6 +1,6 @@
 # dazzlehub
 
-This project was built to combine some one'off tools that help our marketing team at DAZ
+This project was built to combine some one'off tools that I built on my off time - that help our marketing team at DAZ.  This entire AngularJS app was also built on my personal free time ha! - feel free to add it to it if any of y'all got some cycles.
 
 ## Build & development
 
