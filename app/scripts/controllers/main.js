@@ -7,7 +7,9 @@
  * # MainCtrl
  * Controller of the dazzlehubApp
  */
+
 angular.module('dazzlehubApp')
   .controller('MainCtrl', function () {
     
+
   });

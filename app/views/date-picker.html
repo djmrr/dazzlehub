@@ -1,5 +1,14 @@
+<h1>Make Your Selection of Days to Add - Then Type Out Your Date</h1>
 <select ng-model="days" ng-change="convert()">
     <option ng-repeat="day in dayChoices" ng-selected="{{days == day.value}}" value="{{day.value}}">{{ day.name }}</option>
 </select>
-<input ng-model="fromDate" placeholder="mm/dd/yy" ng-change="convert()"/>
-<input ng-model="toDate"/>
+<br>
+<br>
+<label for="startdate">Your Start Date:</label>
+<input id="startdate" ng-model="fromDate" placeholder="mm/dd/yy" ng-change="convert()"/>
+<br>
+<br>
+<label for="enddate">Your End Date:</label>
+<input id="enddate" ng-model="toDate"/>
+<br>
+<br>
