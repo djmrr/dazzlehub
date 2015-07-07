@@ -1,7 +1,10 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "annimations.css";
+@import "productOpener.scss";
 // endbower
+
 
 .browsehappy {
   margin: 0.2em 0;
@@ -10,8 +13,11 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   padding: 0.2em 0;
 }
 
+
 body {
   padding: 0;
+  text-align: center;
+
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -20,6 +26,10 @@ body {
 .footer {
   padding-left: 15px;
   padding-right: 15px;
+  li:hover,a:hover {
+    background-color: lightyellow;
+  }
+  
 }
 
 /* Custom page header */
@@ -47,6 +57,7 @@ body {
   margin: 30px 0;
 }
 
+
 /* Main marketing message and sign up button */
 .jumbotron {
   text-align: center;
@@ -73,6 +84,7 @@ body {
     max-width: 730px;
   }
 
+
   /* Remove the padding we set earlier */
   .header,
   .marketing,
@@ -88,4 +100,14 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+}
+@media screen and (max-width: 767px){
+
+  body {
+    background: url(images/techflux.jpg);
+  }
+  #bgvid {
+    display:none;
+  }
+  
 }
