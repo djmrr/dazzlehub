@@ -1,12 +1,11 @@
 # dazzlehub
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.12.0.
+This project was built to combine some one'off tools that help our marketing team at DAZ
 
 ## Build & development
 
-Run `grunt` for building and `grunt serve` for preview.
+Built up with yeoman for a little scaffolding - hosted on my personal VPS on a python http server - live site can be viewed at www.dazzzlehub.com
 
-## Testing
+## Contribute
 
-Running `grunt test` will run the unit tests with karma.
+Running `grunt test` will run the unit tests with karma.  Use `grunt serve` to host it up locally - to host distrobution run `grunt serve:dist`
