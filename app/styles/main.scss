@@ -27,14 +27,28 @@ body {
   li:hover,a:hover {
     background-color: lightyellow;
   }
-  
+
 }
 
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;
-
+  .dropdown {
+    float: left;
+    padding: 15px 13px;
+    a {
+      color: #848484;
+      &:hover{
+        background-color: transparent;
+      }
+    }
+  }
+  li{
+    &:hover{
+      background-color: #CCF3F1;
+    }
+  }
   /* Make the masthead heading the same height as the navigation */
   h3 {
     margin-top: 0;
@@ -107,7 +121,19 @@ body {
   #bgvid {
     display:none;
   }
-  
+  .header {
+    .dropdown {
+      width:100%;
+      padding: 10px 0;
+      text-decoration: none;
+    }
+    li{
+      text-align: center;
+      &:hover{
+        background-color: #E7E7E7;
+      }
+    }
+  }
 }
 
 
@@ -131,15 +157,15 @@ video#bgvid {
 
 .bigEntrance{
   animation-name: bigEntrance;
-  -webkit-animation-name: bigEntrance;  
+  -webkit-animation-name: bigEntrance;
 
-  animation-duration: 3.3s; 
+  animation-duration: 3.3s;
   -webkit-animation-duration: 3.3s;
 
-  animation-timing-function: ease-out;  
-  -webkit-animation-timing-function: ease-out;  
+  animation-timing-function: ease-out;
+  -webkit-animation-timing-function: ease-out;
 
-  visibility: visible !important;     
+  visibility: visible !important;
 }
 
 @keyframes bigEntrance {
@@ -148,7 +174,7 @@ video#bgvid {
     opacity: 0.2;
   }
   30% {
-    transform: scale(1.03) rotate(-2deg) translateX(2%) translateY(-2%);    
+    transform: scale(1.03) rotate(-2deg) translateX(2%) translateY(-2%);
     opacity: 1;
   }
   45% {
@@ -156,21 +182,21 @@ video#bgvid {
     opacity: 1;
   }
   60% {
-    transform: scale(1.01) rotate(-1deg) translateX(0%) translateY(0%);   
+    transform: scale(1.01) rotate(-1deg) translateX(0%) translateY(0%);
     opacity: 1;
-  } 
+  }
   75% {
     transform: scale(0.99) rotate(1deg) translateX(0%) translateY(0%);
     opacity: 1;
   }
   90% {
-    transform: scale(1.01) rotate(0deg) translateX(0%) translateY(0%);    
+    transform: scale(1.01) rotate(0deg) translateX(0%) translateY(0%);
     opacity: 1;
-  } 
+  }
   100% {
     transform: scale(1) rotate(0deg) translateX(0%) translateY(0%);
     opacity: 1;
-  }   
+  }
 }
 
 @-webkit-keyframes bigEntrance {
@@ -179,7 +205,7 @@ video#bgvid {
     opacity: 0.2;
   }
   30% {
-    -webkit-transform: scale(1.03) rotate(-2deg) translateX(2%) translateY(-2%);    
+    -webkit-transform: scale(1.03) rotate(-2deg) translateX(2%) translateY(-2%);
     opacity: 1;
   }
   45% {
@@ -187,21 +213,21 @@ video#bgvid {
     opacity: 1;
   }
   60% {
-    -webkit-transform: scale(1.01) rotate(-1deg) translateX(0%) translateY(0%);   
+    -webkit-transform: scale(1.01) rotate(-1deg) translateX(0%) translateY(0%);
     opacity: 1;
-  } 
+  }
   75% {
     -webkit-transform: scale(0.99) rotate(1deg) translateX(0%) translateY(0%);
     opacity: 1;
   }
   90% {
-    -webkit-transform: scale(1.01) rotate(0deg) translateX(0%) translateY(0%);    
+    -webkit-transform: scale(1.01) rotate(0deg) translateX(0%) translateY(0%);
     opacity: 1;
-  } 
+  }
   100% {
     -webkit-transform: scale(1) rotate(0deg) translateX(0%) translateY(0%);
     opacity: 1;
-  }       
+  }
 }
 
 #wrapItCsvs{
